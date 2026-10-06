@@ -129,6 +129,27 @@ body{background:#d4a574;display:flex;justify-content:center;align-items:center;m
 .online-dot.off{background:#d32f2f}
 .settings-note{font-size:11px;color:#888;margin-top:4px;line-height:1.5}
 .settings-disabled{opacity:.5;pointer-events:none}
+
+/* ===== تنظیمات موبایل — فونت‌های بزرگ‌تر ===== */
+@media (max-width: 700px) {
+  body { padding: 3px; }
+  .page-wrapper { max-width: 100%; height: calc(100dvh - 6px); aspect-ratio: auto; }
+  .field-input { font-size: 15px; height: 26px; }
+  .field-input::placeholder { font-size: 10px; }
+  .field-input.narrow { font-size: 12px; }
+  .field-input.narrow::placeholder { font-size: 8px; }
+  .calc-box { font-size: 12px; height: 22px; }
+  .calc-box::placeholder { font-size: 9px; }
+  .btn { font-size: 13px; }
+  .btn-save { font-size: 20px; }
+  .btn-long { font-size: 11px; }
+  .today-date { font-size: 13px; }
+  .label { font-size: 14px; }
+  .line-number { font-size: 12px; }
+  .ref-label { font-size: 13px; }
+  .origin-dot { width: 22px; height: 22px; font-size: 12px; }
+  .plus-sign { font-size: 18px; }
+}
 </style>
 </head>
 <body>
@@ -206,8 +227,8 @@ body{background:#d4a574;display:flex;justify-content:center;align-items:center;m
       <option value="line10">تعداد تراکنش کارتخوان اصلی</option>
       <option value="line11">تعداد نان کارتخوان اصلی</option>
       <option value="line12">تعداد پلاستیک کارتخوان اصلی</option>
-      <option value="main-card">مبلغ تراکنش کارتخوان اصلی</option>
-      <option value="backup-card">مبلغ تراکنش کارتخوان زاپاس</option>
+      <option value="main-card">مبلغ کارتخوان اصلی</option>
+      <option value="backup-card">مبلغ کارتخوان زاپاس</option>
       <option value="traveller">مبلغ تراول</option>
       <option value="bag-count">تعداد بسته‌های اردشیر</option>
       <option value="flour-stock">موجودی آرد</option>
@@ -337,9 +358,9 @@ const mX34=((xN(3)+xN(4))/2)+'%';
 ['line10','line11','line12'].forEach((r,i)=>{mk(r,'field-input',['تعداد تراکنش کارتخوان اصلی','تعداد نان کارتخوان اصلی','تعداد پلاستیک کارتخوان اصلی'][i],mX34,yPos(10+i),{width:((xN(4)-xN(3))*.9)+'%',fontSize:'6px'})});
 const cW=xN(3)-xN(2),nW=cW*.9,sW=nW*.7,lC=(xN(2)+xN(3))/2,gap=1,pW=3;
 const lE=lC-(sW/2),pC=lE-gap-(pW/2),rC=pC-(pW/2)-gap-(sW/2);
-mk('main-card','field-input narrow','مبلغ تراکنش کارتخوان اصلی',lC+'%',yPos(13),{width:sW+'%'});
+mk('main-card','field-input narrow','مبلغ کارتخوان اصلی',lC+'%',yPos(13),{width:sW+'%'});
 const p13=document.createElement('div');p13.className='plus-sign';p13.textContent='+';p13.style.right=pC+'%';p13.style.top=yPos(13);content.appendChild(p13);
-mk('backup-card','field-input narrow','مبلغ تراکنش کارتخوان زاپاس',rC+'%',yPos(13),{width:sW+'%'});
+mk('backup-card','field-input narrow','مبلغ کارتخوان زاپاس',rC+'%',yPos(13),{width:sW+'%'});
 mk('cash-diff','calc-box','تفاضل نقدی',lC+'%',yPos(14),{width:sW+'%',fontSize:'6px'});
 const p14=document.createElement('div');p14.className='plus-sign';p14.textContent='+';p14.style.right=pC+'%';p14.style.top=yPos(14);content.appendChild(p14);
 mk('traveller','field-input','تراول',rC+'%',yPos(14),{width:sW+'%'});
@@ -366,7 +387,7 @@ function checkEmpty(){let c=0;REQ.forEach(r=>{const i=F[r],e=!i.value||i.value.t
 REQ.forEach(r=>{F[r].addEventListener('input',()=>{if(F[r].value.trim()!=='')F[r].classList.remove('empty-warning')});F[r].addEventListener('blur',()=>{calc();checkEmpty()})});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden){calc();checkEmpty()}});
 const oV=document.getElementById('dialogOverlay'),dI=document.getElementById('dialogInput'),dQ=document.getElementById('dialogQuestion'),dC=document.getElementById('dialogCounter'),bN=document.getElementById('dialogNext'),bP=document.getElementById('dialogPrev'),bS=document.getElementById('dialogSkip'),bX=document.getElementById('dialogClose');
-const Q=[{text:'تعداد بسته‌های اردشیر:',role:'bag-count'},{text:'تعداد تراکنش کارتخوان اصلی:',role:'line10'},{text:'تعداد نان کارتخوان اصلی:',role:'line11'},{text:'تعداد پلاستیک کارتخوان اصلی:',role:'line12'},{text:'مبلغ تراکنش کارتخوان اصلی:',role:'main-card'},{text:'مبلغ تراکنش کارتخوان زاپاس:',role:'backup-card'},{text:'مبلغ تراول‌ها:',role:'traveller'},{text:'تعداد کیسه‌های آرد موجود:',role:'flour-stock'},{text:'مبلغ نقدی موجود در دخل:',role:'cash-stock'}];
+const Q=[{text:'تعداد بسته‌های اردشیر:',role:'bag-count'},{text:'تعداد تراکنش کارتخوان اصلی:',role:'line10'},{text:'تعداد نان کارتخوان اصلی:',role:'line11'},{text:'تعداد پلاستیک کارتخوان اصلی:',role:'line12'},{text:'مبلغ کارتخوان اصلی:',role:'main-card'},{text:'مبلغ کارتخوان زاپاس:',role:'backup-card'},{text:'مبلغ تراول‌ها:',role:'traveller'},{text:'تعداد کیسه‌های آرد موجود:',role:'flour-stock'},{text:'مبلغ نقدی موجود در دخل:',role:'cash-stock'}];
 let dQ1=[],sQ=[],curDate=null;
 function showDlg(){if(dQ1.length===0){oV.classList.remove('active');if(curDate){saveDate(curDate);curDate=null}calc();checkEmpty();return}const q=dQ1[0],done=Q.length-dQ1.length;dC.textContent=(done+1).toLocaleString('fa-IR')+' از '+Q.length.toLocaleString('fa-IR')+(sQ.length>0?' ('+sQ.length.toLocaleString('fa-IR')+' لغو)':'');dQ.textContent=q.text;dI.value=F[q.role].value||'';bP.disabled=(done===0);bN.textContent=(dQ1.length===1&&sQ.length===0)?'✓ پایان':'بعدی →';oV.classList.add('active');setTimeout(()=>{dI.focus();dI.select()},50)}
 function goNext(){const q=dQ1[0];F[q.role].value=dI.value.trim();dQ1.shift();if(dQ1.length===0&&sQ.length>0){dQ1=sQ.slice();sQ=[]}showDlg()}
