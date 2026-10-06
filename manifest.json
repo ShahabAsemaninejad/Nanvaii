@@ -1,9 +1,12 @@
 {
   "name": "نانوایی ورژن ۱.۰۰",
   "short_name": "نانوایی",
+  "description": "برنامه حسابداری نانوایی",
   "start_url": "/Nanvaii/",
+  "scope": "/Nanvaii/",
   "display": "standalone",
-  "orientation": "portrait",
+  "display_override": ["standalone", "fullscreen"],
+  "orientation": "any",
   "background_color": "#d4a574",
   "theme_color": "#1a3a8f",
   "lang": "fa",
@@ -13,13 +16,19 @@
       "src": "icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
